@@ -31,6 +31,18 @@ class AddOrders extends Migration
                 'type' => 'INT',
                 'constraint' => 11,
             ],
+            'address' => [
+                'type' => 'VARCHAR',
+                'constraint' => 255,
+            ],
+            'city' => [
+                'type' => 'VARCHAR',
+                'constraint' => 255,
+            ],
+            'country' => [
+                'type' => 'VARCHAR',
+                'constraint' => 255,
+            ],
             'createdAt datetime default current_timestamp',
             'updatedAt datetime default current_timestamp on update current_timestamp'
         ]);
