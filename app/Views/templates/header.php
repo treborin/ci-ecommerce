@@ -15,15 +15,29 @@
     <link href="/assets/css/master.css" rel="stylesheet" />
 </head>
 <body>
+<?php
+    $uri = service('uri');
+?>
 <!-- Navigation-->
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container px-4 px-lg-5">
         <a class="navbar-brand" href="/">CI E-Commerce</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <?php if (session()->get('isLoggedIn')): ?>
             <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
-                <li class="nav-item"><a class="nav-link" href="/">Login</a></li>
-                <li class="nav-item"><a class="nav-link" href="/register">Register</a></li>
+                <li class="nav-item <?= ($uri->getSegment(1) == 'dashboard' ? 'active' : null) ?>"><a class="nav-link" href="/dashboard">Dashboard</a></li>
+                <li class="nav-item <?= ($uri->getSegment(1) == 'profile' ? 'active' : null) ?>"><a class="nav-link" href="/profile">Profile</a></li>
+            </ul>
+            <ul class="navbar-nav my-2 my-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link" href="/logout">Logout</a>
+                </li>
+            </ul>
+        <?php else: ?>
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
+                <li class="nav-item <?= ($uri->getSegment(1) == '' ? 'active' : null) ?>"><a class="nav-link" href="/">Login</a></li>
+                <li class="nav-item <?= ($uri->getSegment(1) == 'register' ? 'active' : null) ?>"><a class="nav-link" href="/register">Register</a></li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Shop</a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -34,6 +48,7 @@
                     </ul>
                 </li>
             </ul>
+        <?php endif; ?>
             <form class="d-flex">
                 <button class="btn btn-outline-light" type="submit">
                     <i class="bi-cart-fill me-1"></i>
