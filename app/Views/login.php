@@ -1,6 +1,6 @@
 <div class="container">
     <div class="row">
-        <div class="col-12 col-sm-8 offset-sm-2 col-md-6 offset-md-3 mt-5 mb-5 pt-3 pb-3 bg-white from-wrapper">
+        <div class="col-12 col-sm-8 offset-sm-2 col-md-6 offset-md-3 mt-5 mb-5 pt-3 pb-3 bg-white form-wrapper">
             <div class="container">
                 <h3>Login</h3>
                 <hr>
@@ -18,6 +18,13 @@
                         <label for="password">Password</label>
                         <input type="password" class="form-control" name="password" id="password">
                     </div>
+                    <?php if (isset($validation)): ?>
+                        <div class="col-12 my-2">
+                            <div class="alert alert-danger" role="alert">
+                                <?= $validation->listErrors() ?>
+                            </div>
+                        </div>
+                    <?php endif; ?>
                     <div class="row">
                         <div class="col-12 col-sm-4">
                             <button type="submit" class="btn btn-primary">Login</button>
