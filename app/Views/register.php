@@ -33,11 +33,18 @@
                         <div class="col-12 col-sm-6">
                             <div class="form-group">
                                 <label for="password_confirm">Confirm Password</label>
-                                <input type="password_confirm" class="form-control" name="password_confirm" id="password_confirm">
+                                <input type="password" class="form-control" name="password_confirm" id="password_confirm">
                             </div>
                         </div>
+                        <?php if (isset($validation)): ?>
+                            <div class="col-12 my-2">
+                                <div class="alert alert-danger" role="alert">
+                                    <?= $validation->listErrors() ?>
+                                </div>
+                            </div>
+                        <?php endif; ?>
                     </div>
-                    <div class="row">
+                    <div class="row my-3">
                         <div class="col-12 col-sm-4">
                             <button type="submit" class="btn btn-primary">Register</button>
                         </div>
