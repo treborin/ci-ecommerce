@@ -32,16 +32,11 @@ class AddUsers extends Migration
                 'constraint' => '255',
             ],
             'is_admin' => [
-
+                'type' => 'BOOLEAN',
+                'default' => true,
             ],
-            'created_at' => [
-                'type' => 'DATETIME',
-                'default' => 'current_timestamp()',
-            ],
-            'updated_at'  => [
-                'type'  => 'DATETIME',
-                'default' => 'current_timestamp()',
-            ]
+            'created_at datetime default current_timestamp',
+            'updated_at datetime default current_timestamp on update current_timestamp'
         ]);
         $this->forge->addKey('id', TRUE);
         $this->forge->createTable('users');
