@@ -36,6 +36,11 @@ $routes->get('logout', 'Users::logout');
 $routes->match(['get','post'],'register', 'Users::register',['filter' => 'noauth']);
 $routes->match(['get','post'],'profile', 'Users::profile',['filter' => 'auth']);
 $routes->get('dashboard', 'Dashboard::index',['filter' => 'auth']);
+
+// Shop routes
+$routes->get('/shop', 'Shop::index');
+$routes->get('/cart', 'Cart::index');
+$routes->get('/cart/buy', 'Cart::buy');
 /*
  * --------------------------------------------------------------------
  * Additional Routing

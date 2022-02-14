@@ -1,5 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200&display=swap');
+
 body {
-    background-color: #e1e1e1;
+    font-family: 'Manrope', sans-serif !important;
+    background: #eee
 }
 
 .form-wrapper {
@@ -30,4 +33,43 @@ body {
         display: block;
         margin: 0 auto;
     }
+}
+
+/* Cart Page custom CSS */
+
+.size span {
+    font-size: 11px
+}
+
+.color span {
+    font-size: 11px
+}
+
+.product-deta {
+    margin-right: 70px
+}
+
+.gift-card:focus {
+    box-shadow: none
+}
+
+.pay-button {
+    color: #fff
+}
+
+.pay-button:hover {
+    color: #fff
+}
+
+.pay-button:focus {
+    color: #fff;
+    box-shadow: none
+}
+
+.text-grey {
+    color: #a39f9f
+}
+
+.qty i {
+    font-size: 12px;
 }

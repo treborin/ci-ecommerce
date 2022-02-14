@@ -35,7 +35,7 @@ class AddProducts extends Migration
             ],
             'color' => [
                 'type' => 'ENUM',
-                'constraint' => ['Red','Green','Blue'],
+                'constraint' => ['Red','Green','Blue', 'Gray', 'Orange', 'White'],
                 'null' => true
             ],
             'size' => [
