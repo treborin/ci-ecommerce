@@ -11,8 +11,9 @@ class Shop extends BaseController
     {
         $shopModel = new ShopModel();
         $data['products'] = $shopModel->findAll();
+        $data['itemCount'] = (new Cart())->itemCount();
 
-        echo view('templates/header');
+        echo view('templates/header', $data);
         echo view('shop/index', $data);
         echo view('templates/footer');
     }

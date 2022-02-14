@@ -11,8 +11,9 @@ class Cart extends BaseController
     {
         $data['items'] = array_values(session('cart'));
         $data['total'] = $this->total();
+        $data['itemCount'] = $this->itemCount();
 
-        echo view('templates/header');
+        echo view('templates/header', $data);
         echo view('cart/index', $data);
         echo view('templates/footer');
     }
@@ -71,6 +72,12 @@ class Cart extends BaseController
         $session = session();
         $session->set('cart', $cart);
         return $this->response->redirect(site_url('cart/index'));
+    }
+
+    public function itemCount() {
+        $cart = array_values(session('cart'));
+
+        return count($cart);
     }
 
     private function exists($id) {
