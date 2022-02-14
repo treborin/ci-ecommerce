@@ -13,6 +13,7 @@
                     </span>
                 </div>
             </div>
+            <form method=post action="<?= site_url('cart/update') ?>">
                 <?php if ($items) : ?>
                     <?php foreach ($items as $item) : ?>
                         <div class="d-flex flex-row justify-content-between align-items-center p-2 bg-white mt-4 px-3 rounded">
@@ -26,20 +27,22 @@
                                     <div class="color"><span class="text-secondary">Color:</span><span class="font-weight-bold">&nbsp;<?= $item['color'] ?></span></div>
                                 </div>
                             </div>
-                            <div class="d-flex flex-row align-items-center qty">
-                                <i class="fa fa-minus text-danger"></i>
-                                <h5 class="text-secondary mx-1">
-                                    <?= $item['quantity'] ?>
-                                </h5>
-                                <i class="fa fa-plus text-success"></i>
+                            <div class="d-flex flex-row align-items-center">
+                                <input type="number" style="width: 60px;" class=" mx-1 form-control" min="1" name="quantity[]" value="<?= $item['quantity'] ?>">
+                                <input type="submit" value="Update" class="btn btn-sm btn-outline-dark">
                             </div>
                             <div>
                                 <h5 class="text-secondary">$<?= $item['quantity'] * $item['price'] ?></h5>
                             </div>
-                            <div class="d-flex align-items-center"><i class="fa fa-trash mb-1 text-danger"></i></div>
+                            <div class="d-flex align-items-center">
+                                <a href="<?= site_url('cart/remove/'. $item['id']) ?>">
+                                    <i class="fa fa-trash mb-1 text-danger"></i>
+                                </a>
+                            </div>
                         </div>
                     <?php endforeach ?>
                 <?php endif ?>
+            </form>
             <div class="d-flex flex-row align-items-center justify-content-center mt-3 p-2 bg-white rounded">
                <h3 class="text-black">Total: $<?= $total ?> </h3>
             </div>

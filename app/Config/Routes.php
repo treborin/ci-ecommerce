@@ -41,6 +41,8 @@ $routes->get('dashboard', 'Dashboard::index',['filter' => 'auth']);
 $routes->get('/shop', 'Shop::index');
 $routes->get('/cart', 'Cart::index');
 $routes->get('/cart/buy', 'Cart::buy');
+$routes->get('/cart/remove', 'Cart::remove');
+$routes->add('/cart/update', 'Cart::update');
 /*
  * --------------------------------------------------------------------
  * Additional Routing
