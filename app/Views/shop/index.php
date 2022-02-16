@@ -1,8 +1,12 @@
 <header class="bg-dark py-5">
     <div class="container px-4 px-lg-5 my-5">
         <div class="text-center text-white">
-            <h1 class="display-4 fw-bolder">Shop in CodeIgniter</h1>
-            <p class="lead fw-normal text-white-50 mb-0">With the latest products from our store.</p>
+            <div class="row">
+                <div class="col-12">
+                    <h1>Hello, <?= session()->get('firstname')  ?></h1>
+                </div>
+            </div>
+            <p class="lead fw-normal text-white-50 mb-0">Shop in CodeIgniter the latest products from our store.</p>
         </div>
     </div>
 </header>

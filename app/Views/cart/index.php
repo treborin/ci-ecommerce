@@ -14,7 +14,7 @@
                 </div>
             </div>
             <form method=post action="<?= site_url('cart/update') ?>">
-                <?php if ($items) : ?>
+                <?php if (is_array($items)) : ?>
                     <?php foreach ($items as $item) : ?>
                         <div class="d-flex flex-row justify-content-between align-items-center p-2 bg-white mt-4 px-3 rounded">
                             <div class="mx-1">
@@ -41,7 +41,6 @@
                             </div>
                         </div>
                     <?php endforeach ?>
-                <?php endif ?>
             </form>
             <div class="d-flex flex-row align-items-center justify-content-center mt-3 p-2 bg-white rounded">
                <h3 class="text-black">Total: $<?= $total ?> </h3>
@@ -51,6 +50,11 @@
                     Proceed to Pay
                 </button>
             </div>
+            <?php else: ?>
+                <div class="display-3">
+                    No product in cart
+                </div>
+            <?php endif ?>
         </div>
     </div>
 </div>

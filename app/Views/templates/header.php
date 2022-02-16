@@ -28,36 +28,38 @@
             <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
                 <li class="nav-item <?= ($uri->getSegment(1) == 'dashboard' ? 'active' : null) ?>"><a class="nav-link" href="/dashboard">Dashboard</a></li>
                 <li class="nav-item <?= ($uri->getSegment(1) == 'profile' ? 'active' : null) ?>"><a class="nav-link" href="/profile">Profile</a></li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Shop</a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" href="<?= site_url('shop') ?>">All Products</a></li>
+                        <li><hr class="dropdown-divider" /></li>
+                        <li><a class="dropdown-item" href="<?= site_url('shop') ?>">Popular Items</a></li>
+                        <li><a class="dropdown-item" href="<?= site_url('shop') ?>">New Arrivals</a></li>
+                    </ul>
+                </li>
             </ul>
             <ul class="navbar-nav my-2 my-lg-0">
                 <li class="nav-item">
                     <a class="nav-link" href="/logout">Logout</a>
                 </li>
             </ul>
-        <?php else: ?>
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
-                <li class="nav-item <?= ($uri->getSegment(1) == '' ? 'active' : null) ?>"><a class="nav-link" href="/">Login</a></li>
-                <li class="nav-item <?= ($uri->getSegment(1) == 'register' ? 'active' : null) ?>"><a class="nav-link" href="/register">Register</a></li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Shop</a>
-                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="#!">All Products</a></li>
-                        <li><hr class="dropdown-divider" /></li>
-                        <li><a class="dropdown-item" href="#!">Popular Items</a></li>
-                        <li><a class="dropdown-item" href="#!">New Arrivals</a></li>
-                    </ul>
-                </li>
-            </ul>
-        <?php endif; ?>
             <form class="d-flex">
-                <button class="btn btn-outline-light" type="submit">
+                <a class="btn btn-outline-light"  href="<?= site_url('cart') ?>">
                     <i class="bi-cart-fill me-1"></i>
                     Cart
                     <span class="badge bg-light text-dark ms-1 rounded-pill">
-                        <?= $itemCount ?>
+                        0
                     </span>
-                </button>
+                </a>
             </form>
+            <?php else: ?>
+                <div class="d-inline-flex justify-content-end">
+                    <ul class="float-end navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
+                        <li class="nav-item <?= ($uri->getSegment(1) == '' ? 'active' : null) ?>"><a class="nav-link" href="/">Login</a></li>
+                        <li class="nav-item <?= ($uri->getSegment(1) == 'register' ? 'active' : null) ?>"><a class="nav-link" href="/register">Register</a></li>
+                    </ul>
+                </div>
+            <?php endif; ?>
         </div>
     </div>
 </nav>

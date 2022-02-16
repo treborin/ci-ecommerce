@@ -36,7 +36,7 @@ class Users extends BaseController
 
                 $this->setUserSession($user);
                 //$session->setFlashdata('success', 'Successful Registration');
-                return redirect()->to('dashboard');
+                return redirect()->to('shop');
 
             }
         }

@@ -38,11 +38,11 @@ $routes->match(['get','post'],'profile', 'Users::profile',['filter' => 'auth']);
 $routes->get('dashboard', 'Dashboard::index',['filter' => 'auth']);
 
 // Shop routes
-$routes->get('/shop', 'Shop::index');
-$routes->get('/cart', 'Cart::index');
-$routes->get('/cart/buy', 'Cart::buy');
-$routes->get('/cart/remove', 'Cart::remove');
-$routes->add('/cart/update', 'Cart::update');
+$routes->get('/shop', 'Shop::index', ['filter' => 'auth']);
+$routes->get('/cart', 'Cart::index',['filter' => 'auth']);
+$routes->get('/cart/buy', 'Cart::buy', ['filter' => 'auth']);
+$routes->get('/cart/remove', 'Cart::remove', ['filter' => 'auth']);
+$routes->add('/cart/update', 'Cart::update', ['filter' => 'auth']);
 /*
  * --------------------------------------------------------------------
  * Additional Routing
