@@ -12,12 +12,17 @@ class Cart extends BaseController
         // $data['items'] = array_values(session('cart'));
         $data['items'] = is_array(session('cart'))? array_values(session('cart')): array();
         $data['total'] = $this->total();
-
+        $data['user_id'] = session('id');
+        $data['user_firstname'] = session('firstname');
+        $data['user_lastname'] = session('lastname');
+        $data['user_email'] = session('email');
 
 
         echo view('templates/header', $data);
         echo view('cart/index', $data);
         echo view('templates/footer');
+        // Get session data to fill the order table
+        // echo json_encode($data);
     }
 
     public function buy($id) {
