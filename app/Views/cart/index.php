@@ -12,6 +12,11 @@
 
                     </span>
                 </div>
+                <?php if (session()->get('cart_success')): ?>
+                    <div class="alert alert-success my-3" role="alert">
+                        <?= session()->get('cart_success') ?>
+                    </div>
+                <?php endif; ?>
             </div>
             <form method=post action="<?= site_url('cart/update') ?>">
                 <?php if (is_array($items)) : ?>

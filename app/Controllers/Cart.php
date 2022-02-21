@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use App\Controllers\BaseController;
+use App\Models\CartModel;
 use App\Models\ShopModel;
 
 class Cart extends BaseController
@@ -10,13 +11,23 @@ class Cart extends BaseController
     public function index()
     {
         // $data['items'] = array_values(session('cart'));
-        $data['items'] = is_array(session('cart'))? array_values(session('cart')): array();
+        $data['items'] = is_array(session('cart')) ? array_values(session('cart')): array();
         $data['total'] = $this->total();
         $data['user_id'] = session('id');
         $data['user_firstname'] = session('firstname');
         $data['user_lastname'] = session('lastname');
         $data['user_email'] = session('email');
 
+        $model = new CartModel();
+        $cartContent = [
+            'user_id'=> session('id'),
+            'items' => json_encode($data['items'])
+        ];
+        $model->save($cartContent);
+
+
+
+        session()->setFlashdata('cart_success', 'Content Added to the Cart');
 
         echo view('templates/header', $data);
         echo view('cart/index', $data);
@@ -94,9 +105,12 @@ class Cart extends BaseController
 
     private function total() {
         $s = 0;
-        $items = array_values(session('cart'));
-        foreach ($items as $item) {
-            $s += $item['price'] * $item['quantity'];
+        // array_values(session('cart'));
+        $items =  is_array(session('cart')) ? array_values(session('cart')) : array();
+        if ($items) {
+            foreach ($items as $item) {
+                $s += $item['price'] * $item['quantity'];
+            }
         }
         return $s;
     }
