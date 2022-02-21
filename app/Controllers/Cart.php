@@ -18,16 +18,21 @@ class Cart extends BaseController
         $data['user_lastname'] = session('lastname');
         $data['user_email'] = session('email');
 
-        $model = new CartModel();
-        $cartContent = [
-            'user_id'=> session('id'),
-            'items' => json_encode($data['items'])
-        ];
-        $model->save($cartContent);
 
+        if ($data['items']) {
 
+            $model = new CartModel();
+            $cartContent = [
+                'user_id'=> session('id'),
+                'items' => json_encode($data['items'])
+            ];
+            $model->save($cartContent);
 
-        session()->setFlashdata('cart_success', 'Content Added to the Cart');
+            session()->setFlashdata('cart_success', 'Content Added to the Cart');
+        } else {
+            session()->setFlashdata('cart_success', 'No Product in cart yet !');
+        }
+
 
         echo view('templates/header', $data);
         echo view('cart/index', $data);
