@@ -22,9 +22,29 @@
                             <div class="card-body p-4">
                                 <div class="text-center">
                                     <!-- Product name-->
-                                    <h5 class="fw-bolder"><?= $product['title'] ?></h5>
-                                    <!-- Product price-->
-                                   $ <?= $product['price'] ?>
+                                    <h6 class="fw-bolder"><?= $product['title'] ?></h6>
+                                    <!-- Product name-->
+                                    <div class="d-flex align-items-center justify-content-between">
+                                        <div class="row">
+                                            <div class="col mt-2" style="font-size: 12px;">
+                                                <span class="text-secondary">
+                                                    <i class="fa fa-palette mx-2 text-success"></i>
+                                                    <?= $product['color'] ?>
+                                                </span>
+                                                <span class="text-secondary">
+                                                    <i class="fa fa-tag mx-2 text-success"></i>
+                                                    <?= $product['size'] ?>
+                                                </span>
+                                            </div>
+                                            <div class="col">
+                                                <!-- Product price-->
+                                                <span class="text-secondary fw-bold fs-3 text-right">
+                                                    $ <?= $product['price'] ?>
+                                                </span>
+                                            </div>
+                                        </div>
+
+                                    </div>
                                 </div>
                             </div>
                             <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">

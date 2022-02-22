@@ -77,6 +77,7 @@ class Cart extends BaseController
         return $this->response->redirect(site_url('cart/index'));
     }
 
+
     public function remove($id) {
         $index = $this->exists($id);
         $cart = array_values(session('cart'));
@@ -93,6 +94,9 @@ class Cart extends BaseController
         for ($i = 0; $i < count($cart); $i++) {
             $cart[$i]['quantity'] = $_POST['quantity'][$i];
         }
+
+        // TODO: Looking for a way to update card content without duplicating values
+
         $session = session();
         $session->set('cart', $cart);
         return $this->response->redirect(site_url('cart/index'));
