@@ -46,15 +46,16 @@
                             </div>
                         </div>
                     <?php endforeach ?>
+                <div class="d-flex flex-row align-items-center justify-content-center mt-3 p-2 bg-white rounded">
+                    <h3 class="text-black">Total: $<?= $total ?> </h3>
+                </div>
+                <div class="d-grid gap-2 align-items-center my-3 p-2 bg-white rounded">
+                    <button class="btn btn-warning btn-lg ml-2 pay-button" type="button">
+                        Proceed to Pay
+                    </button>
+                </div>
             </form>
-            <div class="d-flex flex-row align-items-center justify-content-center mt-3 p-2 bg-white rounded">
-               <h3 class="text-black">Total: $<?= $total ?> </h3>
-            </div>
-            <div class="d-grid gap-2 align-items-center my-3 p-2 bg-white rounded">
-                <button class="btn btn-warning btn-lg ml-2 pay-button" type="button">
-                    Proceed to Pay
-                </button>
-            </div>
+
             <?php else: ?>
                 <div class="display-3">
                     No product in cart

@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container"  style="min-height: 80vh">
     <div class="row">
         <div class="col-12 col-sm-8 offset-sm-2 col-md-6 offset-md-3 mt-5 mb-5 pt-3 pb-3 bg-white from-wrapper">
             <div class="container">
@@ -45,10 +45,11 @@
                         <?php endif; ?>
                     </div>
                     <div class="row my-3">
-                        <div class="col-12 col-sm-4">
-                            <button type="submit" class="btn btn-primary">Register</button>
+                        <div class="col-12 col-sm-6">
+                            <div class="d-grid gap-2">
+                                <button type="submit" class="btn btn-primary">Register</button>                            </div>
                         </div>
-                        <div class="col-12 col-sm-8 text-right">
+                        <div class="col-12 col-sm-6 text-right d-flex align-items-center">
                             <a href="/">Already have an account ?</a>
                         </div>
                     </div>
